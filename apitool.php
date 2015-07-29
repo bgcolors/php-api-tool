@@ -83,9 +83,12 @@ if ($url) {
       <label for="res">Result</label>
       <textarea class="form-control" rows="15" id="res"><?php echo empty($fail) ? $res : ''?></textarea>
     </div>
-    <div class="form-group<?php echo empty($url) || !empty($fail) ? ' has-error' : '';?>">
+    <div class="form-group<?php echo empty($url) || !empty($fail) || empty($res) ? ' has-error' : '';?>">
       <label for="res">error</label>
-      <textarea class="form-control" rows="3" id="res"><?php echo empty($url) ? "url can not be empty.\n" : ''; echo empty($fail) ? '' : "fail to get contents.\n"?></textarea>
+      <textarea class="form-control" rows="3" id="res"><?php 
+      echo empty($url) ? "url can not be empty.\n" : '';
+      echo empty($fail) ? '' : "fail to get contents.\n";
+      echo empty($res) ? 'no return.' : ''; ?></textarea>
     </div>
   </form>
 </div>
