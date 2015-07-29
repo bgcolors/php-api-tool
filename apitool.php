@@ -20,7 +20,7 @@ list($url, $method, $names, $values) = array_map(function($v){
   <h3>API TOOL</h3>
   <form method="get">
     <div class="form-group">
-      <label for="url">URL(192.168.83.60:8084/app-ws/)</label>
+      <label for="url">URL</label>
       <input type="text" class="form-control" id="url" placeholder="URL" name="url" value="<?php echo empty($url) ? '' : $url; ?>">
     </div> 
     <div class="form-group">
