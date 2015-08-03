@@ -1,5 +1,10 @@
 <?php error_reporting(E_ERROR) ?>
 <?php 
+if (isset($_GET['res'])) {
+  exit(base64_decode(str_replace(' ', "+", $_GET['res'])));
+}
+?>
+<?php 
 
 list($url, $method, $names, $values) = array_map(function($v){
   return empty($_GET[$v]) ? '' : $_GET[$v];
@@ -79,6 +84,11 @@ if ($url) {
   }
 }
  ?>
+    <div class="form-group">
+      <label for="view">View</label>
+      <iframe class="form-control" style="height: 350px;" src="<?php echo $_SERVER['PHP_SELF']; ?>?res=<?php echo base64_encode($res);?>" frameborder="0" id="view"></iframe>
+      <!-- <iframe class="form-control" style="height: auto" src="test.php" frameborder="0" id="view"></iframe> -->
+    </div>
     <div class="form-group">
       <label for="res">Result</label>
       <textarea class="form-control" rows="15" id="res"><?php echo empty($fail) ? $res : ''?></textarea>
